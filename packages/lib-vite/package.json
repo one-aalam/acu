@@ -1,0 +1,39 @@
+{
+  "name": "lib-vite",
+  "version": "0.0.0",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+        "import": "./dist/index.mjs",
+        "require": "./dist/index.js"
+    },
+    "./styles.css": "./dist/styles.css"
+  },
+  "sideEffects": false,
+  "license": "MIT",
+  "files": [
+    "dist/**"
+  ],
+  "scripts": {
+    "dev": "vite && tailwindcss -i ./src/styles.css -o ./dist/styles.css --watch",
+    "build": "NODE_ENV=production vite build && tailwindcss -i ./src/styles.css -o ./dist/styles.css",
+    "lint": "prettier --check --ignore-path=../../.prettierignore . && eslint .",
+    "format": "prettier --write --ignore-path=../../.prettierignore .",
+    "preview": "vite preview",
+    "clean": "rm -rf node_modules && rm -rf dist"
+  },
+  "devDependencies": {
+    "config": "*",
+    "eslint-config-custom": "*",
+    "redaxios": "^0.5.1",
+    "svelte": "^3.50.0",
+    "tailwindcss": "^3.1.8",
+    "tsconfig": "*",
+    "typescript": "^4.5.2",
+    "vite": "^3.1.0",
+    "vite-plugin-dts": "^1.4.1",
+    "vite-plugin-environment": "^1.1.2"
+  }
+}
